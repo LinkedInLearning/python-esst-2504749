@@ -1,4 +1,4 @@
-# Challange 1
+# Challenge 1
 
 meine_liste = [0, 0, 0, 0, 0]
 
