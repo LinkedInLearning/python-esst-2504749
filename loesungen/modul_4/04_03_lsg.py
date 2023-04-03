@@ -1,4 +1,4 @@
-# Challange 1
+# Challenge 1
 
 def ausgabe_meine_liste(meine_liste):
     for element in meine_liste:
