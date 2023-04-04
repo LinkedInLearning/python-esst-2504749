@@ -16,7 +16,7 @@ def meine_berechnung(parameter_1, parameter_2):
 test_parameter_1 = 2
 test_parameter_2 = 3
 test_ergebnis = meine_berechnung(test_parameter_1, test_parameter_2)
-print('Test Ergebnist ist', test_ergebnis)
+print('Testergebnis ist', test_ergebnis)
 
 
 # Challenge 3
@@ -30,4 +30,4 @@ test_parameter_1 = 2
 test_parameter_2 = 3
 test_parameter_3 = 4
 test_ergebnis = mein_check(test_parameter_1, test_parameter_2, test_parameter_3)
-print('Das ergebnis des Checks ist ', test_ergebnis)
+print('Das Ergebnis des Checks ist ', test_ergebnis)
