@@ -8,7 +8,7 @@ test_liste = [1,2,3,4]
 ausgabe_meine_liste(test_liste)
 
 
-#Challenge 2
+# Challenge 2
 def meine_berechnung(parameter_1, parameter_2):
     ergebnis = parameter_1 * (parameter_2 + 2)
     return ergebnis

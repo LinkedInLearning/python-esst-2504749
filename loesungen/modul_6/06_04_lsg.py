@@ -7,6 +7,7 @@ def ausgabe_feld(feld_liste):
     print(' ', feld_liste[6], ' | ', feld_liste[7], ' | ', feld_liste[8])
     print('-----------------')
 
+
 def gewinn_abfrage(feld_liste, spieler):
     # Reihen
     if (feld_liste[0] == spieler) and (feld_liste[1] == spieler) and (feld_liste[2] == spieler):
@@ -22,7 +23,7 @@ def gewinn_abfrage(feld_liste, spieler):
         return True
     if (feld_liste[2] == spieler) and (feld_liste[5] == spieler) and (feld_liste[8] == spieler):
         return True
-    # Diagonale
+    # Diagonalen
     if (feld_liste[0] == spieler) and (feld_liste[4] == spieler) and (feld_liste[8] == spieler):
         return True
     if (feld_liste[2] == spieler) and (feld_liste[4] == spieler) and (feld_liste[6] == spieler):
@@ -31,8 +32,15 @@ def gewinn_abfrage(feld_liste, spieler):
     return False
 
 
+def abfrage_unentschieden(feld_liste):
+    unentschieden = True
+    for feld in feld_liste:
+        if feld == ' ':
+            unentschieden = False
+    return unentschieden
 
-# Das Feld ist eine List aus 9 Elementen
+
+# Das Feld ist eine Liste aus 9 Elementen
 #---------------
 # f0 | f1 | f2 |
 # f3 | f4 | f5 |
@@ -44,34 +52,38 @@ spiel_feld = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 
 
 while True:
-  #printe das Feld damit der user sieht, welche felder noch frei sind
+  # printe das Feld damit User:in sieht, welche Felder noch frei sind
   ausgabe_feld(spiel_feld)
   
-  input_x = input('User x: wähle dein felde und gib dafür die Zahl 1-9 ein: ')
+  input_x = input('User:in x: waehle dein Feld und gib dafür die Zahl 1-9 ein: ')
 
   # setze das x an die richtige stelle:
   spiel_feld[int(input_x) - 1] = 'x'
 
-  #Überprüfe ob user_x gewonnen hat
+  # Überprüfe ob user_x gewonnen hat
   sieg = gewinn_abfrage(spiel_feld, 'x')
-  if sieg:
-    print('Sieger Spieler X')
+  if sieg == True:
+    print('Sieg X')
+    break
+  unentschieden = abfrage_unentschieden(spiel_feld)
+  if unentschieden == True:
+    print('Unentschieden')
     break
 
-  # Das gleiche müssen wir auch für den kreis machen
-  # printe das Feld damit der user sieht, welche felder noch frei sind
+  # Das Gleiche muessen wir auch für den Kreis machen
+  # printe das Feld damit User:in sieht, welche felder noch frei sind
   ausgabe_feld(spiel_feld)
-  input_o = input('User o: wähle dein felde und gib dafür die Zahl 1-9 ein: ')
+  input_o = input('User:in o: wähle dein felde und gib dafür die Zahl 1-9 ein: ')
 
   # setze das o an die richtige stelle:
   spiel_feld[int(input_o) - 1] = 'o'
   
-  #Überprüfe ob user_x gewonnen hat
+  # Überprüfe ob user_x gewonnen hat
   sieg = gewinn_abfrage(spiel_feld, 'o')
-  if sieg:
-    print('Sieger Spieler O')
+  if sieg == True:
+    print('Sieg O')
     break
 
 
-# Am ende des Programms geben wir ein letztes Mal das Spielfeld aus
+# Am Ende des Programms geben wir ein letztes Mal das Spielfeld aus
 ausgabe_feld(spiel_feld)
